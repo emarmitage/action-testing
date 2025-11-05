@@ -3,7 +3,14 @@ name: arc_test Workflow
 permissions:
   contents: read
 
-on: [workflow_dispatch]
+on:
+  workflow_dispatch: 
+    inputs:
+      custom_input:
+        description: 'Input passed from Power Automate workflow'
+        required: true
+
+# on: [workflow_dispatch]
 
 jobs:
   arc_test_job:
@@ -34,4 +41,6 @@ jobs:
             AGO_USERNAME: ${{ secrets.AGO_USERNAME }}
             AGO_PASSWORD: ${{ secrets.AGO_PASSWORD }}
             AGO_PORTAL: ${{ secrets.AGO_PORTAL }}
+            OID_POWER_AUTOMATE: ${{ inputs.custom_input}}
+
         run: python arc/arc_test.py

@@ -9,6 +9,9 @@ import geopandas as gpd
 username = os.getenv('AGO_USERNAME')
 password = os.getenv('AGO_PASSWORD')
 portal = os.getenv('AGO_PORTAL')
+oid = os.getenv('OID_POWER_AUTOMATE')
+
+print(oid)
 
 gis = GIS(url=portal, username=username, password=password)
 
